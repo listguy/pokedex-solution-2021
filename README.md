@@ -2,7 +2,7 @@
 
 ### Client Requirements:
 
-- I can search pokémons and get details using `id` or `name`
+- I can search pokémons and get details using `name`
 - I can see searched pokémon's name, height, weight and image on screen.
   I should also see a list of the pokémon's types. ("fire", "grass", "poison" etc...)
 - On clicking one of the pokémon's types, I should also see a list containing the names of all the pokémons of this type.
@@ -19,4 +19,4 @@
 
 - Pokémon's image changes from front to back when hovering over the image.
 - I can "catch" a pokémon by clicking the catch button. Caught pokémons should be marked and have a "release option instead".
-- Handle pokeAPI error responses. Alert `404` responds from server with a special message.
+- Alert `404` responds from server with a special message.
