@@ -3,28 +3,30 @@ import axios from "axios";
 
 const BASE_URL = "http://localhost:3001/api";
 
-function Pokemon({ pokemon, setType, isCaught, setIsCaught, inCollection }) {
+function Pokemon({ pokemon, setType, inCollection }) {
+  const [isCaught, setIsCaught] = useState(false);
   useEffect(async () => {
     if (await inCollection(pokemon.id)) {
-        setIsCaught(true)
-        console.log('true')
+      setIsCaught(true);
+      console.log("true");
     } else {
-        setIsCaught(false)
-        console.log('false')
-
+      setIsCaught(false);
+      console.log("false");
     }
   }, [pokemon]);
 
-  useEffect(async() => {
-    if (!isCaught || await inCollection(pokemon.id)) {
-      return;
-    }
-    (async function postPokemon() {
-      try {
-        await axios.post(`${BASE_URL}/collection/catch`, pokemon);
-      } catch (err) {
-        console.log(err);
+  useEffect(async () => {
+    (async function postingFunction() {
+      if (!isCaught || (await inCollection(pokemon.id))) {
+        return;
       }
+      (async function postPokemon() {
+        try {
+          await axios.post(`${BASE_URL}/collection/catch`, pokemon);
+        } catch (err) {
+          console.log(err);
+        }
+      })();
     })();
   }, [isCaught]);
 

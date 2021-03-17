@@ -15,7 +15,7 @@ function Main(props) {
       front_default: "",
     },
   });
-  const [isCaught, setIsCaught] = useState(false);
+
   const [userInput, setUserInput] = useState("");
   const [pokemonName, setPokemonName] = useState("");
   const [type, setType] = useState("");
@@ -83,8 +83,6 @@ function Main(props) {
       </button>
       {isError ? <div>Pokemon not found</div> : null}
       <Pokemon
-        isCaught={isCaught}
-        setIsCaught={setIsCaught}
         pokemon={pokemon}
         setType={setType}
         inCollection={inCollection}
