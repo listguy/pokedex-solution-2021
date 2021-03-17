@@ -8,10 +8,8 @@ function Pokemon({ pokemon, setType, inCollection }) {
   useEffect(async () => {
     if (await inCollection(pokemon.id)) {
       setIsCaught(true);
-      console.log("true");
     } else {
       setIsCaught(false);
-      console.log("false");
     }
   }, [pokemon]);
 
